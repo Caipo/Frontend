@@ -1,56 +1,16 @@
 import React from 'react';
+import SidePannel from '@/components/side_pannel';
+import CenterPannel from '@/components/structure';
 
-function App() {
+function Home() {
+    const description = <a href="login">login</a>;
+
   return (
-<>
-    <div className="container2">
-    <h5>Chats Log</h5>
-    <div id="log">
-        <Message />
-    </div>
-
-    <textarea id="mssg" placeholder="Your message goes here">
-    </textarea>
-  </div>
-
-
-  <div className="right-container">
-  <h3>Online Users</h3>
-  <ul id="user-list"></ul>
-  </div>
-</>);
+      <>
+          <CenterPannel content={description} title='Root'  />
+          <SidePannel content={<p>asdf</p>} title='Users' />
+    </>
+  );
 }
 
-
-function Message(){
-    return(
-        <>
-           <div className='message'>
-          <div className="avatar">
-              <img className='avatar' src='' alt="Avatar" />
-          </div>
-          <div className="content">
-                  <div className="author">Sennder</div>
-                  <div className="text">meassage </div>
-          </div>
-          </div>
-        </>
-    );
-}
-
-function User(){
-    return(
-        <>
-            <div className="avatar">
-                <img className='avatar' src='' alt="Avatar" />
-            </div>
-            <div className="content">
-                <div className="author"><b>matt</b></div>
-            </div>
-        </>
-    );
-}
-
-export default App;
-
-
+export default Home;
