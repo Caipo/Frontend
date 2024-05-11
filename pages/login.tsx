@@ -1,88 +1,14 @@
 import React from 'react';
 import CenterPannel from '@/components/center_pannel/center_pannel';
-import './login.module.css'
-
+import LoginForm from '@/components/login_form/login_form';
 
 
 function Login() {
-    const loginContent = <> 
-                    <label className="radio-container">
-                        <input type="radio" name="option" className='login-radio' value="option1"/>
-                      <span className="radio-inner"></span>
-                      <span className="radio-label">Option 1</span>
-                    </label>
-
-                    <label className="radio-container">
-                      <input type="radio" className='login-radio' name="option" value="option2"/>
-                      <span className="radio-inner"></span>
-                      <span className="radio-label">Option 2</span>
-                    </label>
-                    <form>
-                        <input id='fname' className='input-box' placeholder="User name"/> <br/> 
-                        <input id='password' className='input-box' placeholder="Password"/> <br/> 
-                    </form> 
-
-                    <button onClick={LoginSubmit}> submit </button> 
-                    <h3>Sign up </h3>
-                    <form>
-                        <input id='fname' className='input-box' placeholder="User name"/> <br/> 
-                        <input id='password' className='input-box' placeholder="Password"/> <br/> 
-                    </form> 
-                    <button onClick={SignUpSubmit}> submit </button> 
-                </>;
-
   return (
       <>
-      <CenterPannel content={loginContent} title='Login'  />
+          <CenterPannel content={<LoginForm />} title=''  />
       </>
   );
-}
-
-async function SignUpSubmit(){
-    const usernameInput = document.getElementById("fname") as HTMLInputElement;
-    const passwordInput = document.getElementById("password") as HTMLInputElement;
-
-    const api_inputs = {
-            username: usernameInput.value,
-            password: passwordInput.value
-        };
-
-    const url = 'https://apichallenges.herokuapp.com/mirror/request';
-    const data = await fetch(
-        url, {
-            method: "POST", 
-            body: JSON.stringify(api_inputs)
-        }
-    );
-
-    if (data['status'] === 200){
-        console.log('You logged in');
-        window.location.href = "/home";
-    }
-    console.log(data);
-}
-async function LoginSubmit(){
-    const usernameInput = document.getElementById("fname") as HTMLInputElement;
-    const passwordInput = document.getElementById("password") as HTMLInputElement;
-
-    const api_inputs = {
-            username: usernameInput.value,
-            password: passwordInput.value
-        };
-
-    const url = 'https://apichallenges.herokuapp.com/mirror/request';
-    const data = await fetch(
-        url, {
-            method: "POST", 
-            body: JSON.stringify(api_inputs)
-        }
-    );
-
-    if (data['status'] === 200){
-        console.log('You logged in');
-        window.location.href = "/home";
-    }
-    console.log(data);
 }
 
 export default Login;
