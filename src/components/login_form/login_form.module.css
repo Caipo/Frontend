@@ -1,0 +1,55 @@
+input[type="radio"]:checked + .radio-container .radio-inner {
+  background-color: red;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+
+.radio-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style for the black rectangle */
+.radio-inner {
+  width: 20px;
+  height: 20px;
+  background-color: ;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the label */
+.radio-label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+
+.input-box {
+  width: 300px; /* Adjust width as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none; /* Remove default focus outline */
+}
+
+.input-box:hover {
+    background-color : 'red';
+}
+
+
+/* Style for when input field is focused */
+.input-box:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
+}
+
+/* Style for placeholder text */
+.input-box::placeholder {
+  color: #aaa; /* Adjust placeholder color */
+}

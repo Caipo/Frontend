@@ -1,15 +1,27 @@
 import React from 'react';
-import CenterPannel from '@/components/structure';
-import { redirect } from 'next/navigation'
+import CenterPannel from '@/components/center_pannel/center_pannel';
+import './login.module.css'
 
 
 
 function Login() {
     const loginContent = <> 
+                    <label className="radio-container">
+                        <input type="radio" name="option" className='login-radio' value="option1"/>
+                      <span className="radio-inner"></span>
+                      <span className="radio-label">Option 1</span>
+                    </label>
+
+                    <label className="radio-container">
+                      <input type="radio" className='login-radio' name="option" value="option2"/>
+                      <span className="radio-inner"></span>
+                      <span className="radio-label">Option 2</span>
+                    </label>
                     <form>
                         <input id='fname' className='input-box' placeholder="User name"/> <br/> 
                         <input id='password' className='input-box' placeholder="Password"/> <br/> 
                     </form> 
+
                     <button onClick={LoginSubmit}> submit </button> 
                     <h3>Sign up </h3>
                     <form>

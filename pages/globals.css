@@ -1,0 +1,105 @@
+button {
+            margin: 0.5rem;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            background-color: #ddd;
+            color: #000;
+            border: 1px solid #444;
+            border-radius: 5px; 
+        }
+
+.log {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    text-align: left;
+    width: 75%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    color: #444444;
+    box-sizing: border-box;
+}
+
+h5 {
+    color: #333333;
+    font-size: 16px;
+}
+
+input#submit {
+    margin-top: 16px;
+    width: 20%;
+    text-align: center;
+    position: fixed;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+
+
+input[type="radio"]:checked + .radio-container .radio-inner {
+  background-color: red;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+
+.radio-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style for the black rectangle */
+.radio-inner {
+  width: 20px;
+  height: 20px;
+  background-color: ;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the label */
+.radio-label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+
+.input-box {
+  width: 300px; /* Adjust width as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none; /* Remove default focus outline */
+}
+
+.input-box:hover {
+    background-color : 'red';
+}
+
+
+/* Style for when input field is focused */
+.input-box:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
+}
+
+/* Style for placeholder text */
+.input-box::placeholder {
+  color: #aaa; /* Adjust placeholder color */
+}

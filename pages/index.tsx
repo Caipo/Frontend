@@ -1,6 +1,5 @@
 import React from 'react';
-import SidePannel from '@/components/side_pannel';
-import CenterPannel from '@/components/structure';
+import CenterPannel from '@/components/center_pannel/center_pannel';
 
 function App() {
     const description = <a href="login">login</a>;
