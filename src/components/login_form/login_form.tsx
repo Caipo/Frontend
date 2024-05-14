@@ -1,35 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './login_form.module.css'
 
 interface Props {}
 
 function LoginForm({} : Props){
+    const [select, setSelect] = useState(true);
+
+
+    const signContent  = <>
+                            <form>
+                                <input id='name' className={styles.inputBox} placeholder="sign name"/> <br/> 
+                                <input id='password1' type='password' className={styles.inputBox} placeholder="Password"/> <br/> 
+                                <input id='password2' type='password' className={styles.inputBox} placeholder="Password"/> <br/> 
+                            </form> 
+                         </>;
+    
     const loginContent = <> 
-                <div className={styles.customCheckBoxHolder}>
-                    <input className={styles.customCheckBoxInput} name="option" id="cCB1" type="radio" defaultChecked />
-                    <label className={styles.customCheckBoxWrapper} htmlFor="cCB1">
-                        <div className={styles.customCheckBox}>
-                            <div className="inner">Login</div>
-                        </div>
-                    </label>
+                            <form>
+                                <input id='name' className={styles.inputBox} placeholder="User name"/> <br/> 
+                                <input id='password' type='password' className={styles.inputBox} placeholder="Password"/> <br/> 
+                            </form> 
+                         </>;
 
-                    <input className={styles.customCheckBoxInput} name="option" id="cCB2" type="radio"/>
-                    <label className={styles.customCheckBoxWrapper} htmlFor="cCB2">
-                        <div className={styles.customCheckBox}>
-                            <div className="inner">Sign Up</div>
-                        </div>
-                    </label>
+    const handelClick = () => {setSelect(event.target.value)}
+    
 
-                </div>
-                    <form>
-                        <input id='name' className={styles.inputBox} placeholder="User name"/> <br/> 
-                        <input id='password' type='password' className={styles.inputBox} placeholder="Password"/> <br/> 
-                    </form> 
+    const mainContent = <> 
+                               <div className={styles.customCheckBoxHolder} onChange={ handelClick }>
+                                <input className={styles.customCheckBoxInput} name="option" value='login' id="cCB1" type="radio" defaultChecked />
+                                <label className={styles.customCheckBoxWrapper} htmlFor="cCB1">
+                                    <div className={styles.customCheckBox}>
+                                        <div className="inner">Login</div>
+                                    </div>
+                                </label>
 
-                    <button onClick={Submit}> submit </button> 
-                </>;
+                                <input className={styles.customCheckBoxInput} name="option" value='sign' id="cCB2" type="radio"/>
+                                <label className={styles.customCheckBoxWrapper} htmlFor="cCB2">
+                                    <div className={styles.customCheckBox}>
+                                        <div className="inner">Sign Up</div>
+                                    </div>
+                                </label>
 
-        return (loginContent);
+                            </div>
+                                
+                            {(select === 'sign') ? signContent : loginContent } 
+                            <button onClick={Submit}> submit </button> 
+                         </>;
+
+        return (mainContent);
 }
 
 
