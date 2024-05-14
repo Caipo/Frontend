@@ -6,9 +6,9 @@ import LoginForm from '@/components/login_form/login_form';
 function Login() {
   return (
       <>
-          <CenterPannel content={<LoginForm />} title=''  />
+          <CenterPannel content={<LoginForm />} title=''  type='login'/>
       </>
-  );
+  )
 }
 
 export default Login;

@@ -19,7 +19,7 @@ function Home() {
                     </>;
   return (
     <>
-          <CenterPannel content={centerCont} title='Chat Log' showMessageBox={true}  />
+          <CenterPannel content={centerCont} title='Chat Log' showMessageBox={true} contentType='chat' />
           <SidePannel content={sideCont} title='Users' />
     </>
   );
@@ -32,8 +32,6 @@ function GetUsers(){
     {'name' : 'CodeMasterX', 'avatar' : 'https://i.imgur.com/sWVxwkV.jpeg'}, 
     {'name' : 'GeekGoddess', 'avatar' : 'https://i.imgur.com/IPVUvBD.jpeg'}, 
 ]; 
-
-    
     return tempData.map((o, i) => <User name={o['name']} avatar={o['avatar']} />);
     
 }

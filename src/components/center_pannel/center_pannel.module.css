@@ -13,6 +13,33 @@
     box-sizing: border-box;
 }
 
+.chatLog{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    text-align: left;
+    width: 75%;
+    box-sizing: border-box;
+}
+
+.centeredContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transform: translateY(-16.666%); 
+}
+
 
 .mssg {
   resize: none;

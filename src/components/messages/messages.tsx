@@ -20,7 +20,7 @@ function Message({text, author, avatar} : Props){
                   <div className='text'>{text}</div>
               </div>
           </div> 
-        </>
+      </>
     );
 }
 

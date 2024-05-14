@@ -6,84 +6,58 @@ interface Props {}
 function LoginForm({} : Props){
     const loginContent = <> 
                 <div className={styles.customCheckBoxHolder}>
-
-                    <input className={styles.customCheckBoxInput} name="option" id="cCB1" type="radio"/>
-                    <label className={styles.customCheckBoxWrapper} for="cCB1">
+                    <input className={styles.customCheckBoxInput} name="option" id="cCB1" type="radio" defaultChecked />
+                    <label className={styles.customCheckBoxWrapper} htmlFor="cCB1">
                         <div className={styles.customCheckBox}>
                             <div className="inner">Login</div>
                         </div>
                     </label>
 
                     <input className={styles.customCheckBoxInput} name="option" id="cCB2" type="radio"/>
-                    <label className={styles.customCheckBoxWrapper} for="cCB2">
+                    <label className={styles.customCheckBoxWrapper} htmlFor="cCB2">
                         <div className={styles.customCheckBox}>
                             <div className="inner">Sign Up</div>
                         </div>
                     </label>
 
                 </div>
-
                     <form>
-                        <input id='lname' classNameName={styles.inputBox} placeholder="User name"/> <br/> 
-                        <input id='lpassword' classNameName={styles.inputBox} placeholder="Password"/> <br/> 
+                        <input id='name' className={styles.inputBox} placeholder="User name"/> <br/> 
+                        <input id='password' type='password' className={styles.inputBox} placeholder="Password"/> <br/> 
                     </form> 
 
-                    <button onClick={LoginSubmit}> submit </button> 
+                    <button onClick={Submit}> submit </button> 
                 </>;
 
         return (loginContent);
 }
 
 
-async function SignUpSubmit(){
-    const usernameInput = document.getElementById("fname") as HTMLInputElement;
-    const passwordInput = document.getElementById("password") as HTMLInputElement;
+async function Submit(){
+    const loginSelected = document.getElementById("cCB1").checked;
+    const url = 'https://apichallenges.herokuapp.com/mirror/request';
+    
+    const usernameInput = document.getElementById("name");
+    const passwordInput = document.getElementById("password");
 
-    if (!usernameInput || !passwordInput){return(-1);}
+    if (!usernameInput?.value || !passwordInput?.value){alert("The Username and password cannot be empty"); return(-1)}
 
     const api_inputs = {
-            username: usernameInput.value,
-            password: passwordInput.value
-        };
+            username: !usernameInput.value,
+            password: !passwordInput.value}
 
-    const url = 'https://apichallenges.herokuapp.com/mirror/request';
     const data = await fetch(
         url, {
             method: "POST", 
             body: JSON.stringify(api_inputs)
         }
     );
-
-    if (data['status'] === 200){
-        console.log('You logged in');
-        window.location.href = "/home";
+    
+    switch(+data['status']){
+        case 200: {window.location.href = "/home";}
+        case 403: {alert('Login wrong')}
     }
-    console.log(data);
+
 }
 
-async function LoginSubmit(){
-    const usernameInput = document.getElementById("fname") as HTMLInputElement;
-    const passwordInput = document.getElementById("password") as HTMLInputElement;
-
-    if (!usernameInput || !passwordInput){return(-1);}
-
-    const api_inputs = {
-            username: usernameInput.value,
-            password: passwordInput.value
-        };
-
-    const url = 'https://apichallenges.herokuapp.com/mirror/request';
-    const data = await fetch(
-        url, {
-            method: "POST", 
-            body: JSON.stringify(api_inputs)
-        }
-    );
-
-    if (data['status'] === 200){
-        console.log('You logged in');
-        window.location.href = "/home";
-    }
-    console.log(data);
-}
 export default LoginForm;
