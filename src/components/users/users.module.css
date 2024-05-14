@@ -1,0 +1,42 @@
+.userLink {
+  text-decoration: none;
+  color: #fff;
+}
+
+.userItem{
+ display: flex;
+}
+
+
+.profileAvatar {
+  width: 150px;
+  height: 150px;
+  min-width: 47px;
+  min-height: 47px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.profileAvatar img {
+  object-fit: contain;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  min-width: 47px;
+  min-height: 47px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.avatar img {
+  object-fit: contain;
+}
+
+.content {
+  margin-left: 16px;
+  box-sizing: border-box;
+}
