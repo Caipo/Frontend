@@ -1,56 +1,39 @@
 import React from 'react';
+import SidePannel from '@/components/side_pannel/side_pannel';
+import CenterPannel from '@/components/center_pannel/center_pannel';
+import Message from '@/components/messages/messages'
+import User from '@/components/users/users'
 
-function App() {
+
+function Home() {
+    const centerCont = <>
+                           <div className="log">
+                               <Message text='asdf' avatar='https://i.imgur.com/fRvjCez.png' author='Caipo' /> 
+                            </div>
+                       </> 
+    
+    const sideCont = <> 
+                        <ul id="user-list">
+                        {GetUsers()}
+                        </ul>
+                    </>;
   return (
-<>
-    <div className="container2">
-    <h5>Chats Log</h5>
-    <div id="log">
-        <Message />
-    </div>
-
-    <textarea id="mssg" placeholder="Your message goes here">
-    </textarea>
-  </div>
-
-
-  <div className="right-container">
-  <h3>Online Users</h3>
-  <ul id="user-list"></ul>
-  </div>
-</>);
+    <>
+          <CenterPannel content={centerCont} title='Chat Log' showMessageBox={true} contentType='chat' />
+          <SidePannel content={sideCont} title='Users' />
+    </>
+  );
 }
 
-
-function Message(){
-    return(
-        <>
-           <div className='message'>
-          <div className="avatar">
-              <img className='avatar' src='' alt="Avatar" />
-          </div>
-          <div className="content">
-                  <div className="author">Sennder</div>
-                  <div className="text">meassage </div>
-          </div>
-          </div>
-        </>
-    );
+function GetUsers(){
+    const tempData = [
+    {'name' : 'CyberNinja42', 'avatar' : 'https://i.imgur.com/nfB8nHU.jpeg'}, 
+    {'name' : 'PixelPirate23', 'avatar' : 'https://i.imgur.com/fRvjCez.png'}, 
+    {'name' : 'CodeMasterX', 'avatar' : 'https://i.imgur.com/sWVxwkV.jpeg'}, 
+    {'name' : 'GeekGoddess', 'avatar' : 'https://i.imgur.com/IPVUvBD.jpeg'}, 
+]; 
+    return tempData.map((o, i) => <User name={o['name']} avatar={o['avatar']} />);
+    
 }
 
-function User(){
-    return(
-        <>
-            <div className="avatar">
-                <img className='avatar' src='' alt="Avatar" />
-            </div>
-            <div className="content">
-                <div className="author"><b>matt</b></div>
-            </div>
-        </>
-    );
-}
-
-export default App;
-
-
+export default Home;

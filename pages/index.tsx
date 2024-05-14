@@ -1,20 +1,18 @@
 import React from 'react';
-import Structure from '@/components/structure';
+import CenterPannel from '@/components/center_pannel/center_pannel';
 
 function App() {
-    return (
-    <>
-        <Structure centerContent={<>asdf</>} 
-                   rightContent={<>asdf</>} 
-                   messageBox={<></>}
-                   showSide={true}
-                   centerTitle='centerTitle'
-                   rightTitle='rightTitle'
-        />
-    </>
-    );
+    const description = <a href="login">login</a>;
+
+
+  return (
+      <>
+          <CenterPannel content={description} title='Root'  />
+     </>
+  );
 }
 
 
 
 export default App;
+
